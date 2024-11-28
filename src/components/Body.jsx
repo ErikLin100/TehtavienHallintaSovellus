@@ -94,6 +94,13 @@ function Body() {
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-lg mt-6">
+      <button
+        onClick={() => setAddTodoModal(true)}
+        className="bg-green-500 text-white rounded p-2 mb-4 w-full"
+      >
+        + Add Task
+      </button>
+      
       <Tabs onTabChange={setActiveTab} />
       <h2 className="text-2xl font-bold mb-4">Tasks</h2>
       <div className="overflow-auto max-w-screen-md mx-auto">
@@ -107,16 +114,10 @@ function Body() {
             comments={todo.comments}
             time={todo.time?.toDate().getTime()}
             status={todo.status}
-            updateTodo={updateTodo} // Pass the updateTodo function
+            updateTodo={updateTodo}
           />
         ))}
       </div>
-      <button
-        onClick={() => setAddTodoModal(true)}
-        className="bg-green-500 text-white rounded p-2 mt-4 w-full"
-      >
-        + Add Task
-      </button>
 
       <AddTodoModal
         open={addTodoModal}

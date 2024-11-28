@@ -2,18 +2,16 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-
-
 const firebaseConfig = {
-    apiKey: "AIzaSyCjpfHMlt2tl_9Z5vxH4mbWzh9RpfiyKEc",
-    authDomain: "todoappwithreact-716c3.firebaseapp.com",
-    projectId: "todoappwithreact-716c3",
-    storageBucket: "todoappwithreact-716c3.appspot.com",
-    messagingSenderId: "20838616601",
-    appId: "1:20838616601:web:34685b235ab59bc3ef2488"
-  };
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
+};
 
-  initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const auth = getAuth();
 const db = getFirestore();

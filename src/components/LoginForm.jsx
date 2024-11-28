@@ -1,4 +1,4 @@
-import React from "react";
+
 import {auth, provider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
 
@@ -25,7 +25,7 @@ function LoginForm() {
            <input
              type="email"
              id="email"
-             className="w-full px-3 py-2 border rounded-lg"
+             className="bg-white w-full px-3 py-2 border rounded-lg"
              placeholder="Enter your email"
            />
          </div>
@@ -36,7 +36,7 @@ function LoginForm() {
            <input
              type="password"
              id="password"
-             className="w-full px-3 py-2 border rounded-lg"
+             className="bg-white w-full px-3 py-2 border rounded-lg"
              placeholder="Enter your password"
            />
          </div>
