@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AutoLogoutHandler from "./components/AutoLogoutHandler"; // Import the component
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
@@ -14,21 +15,28 @@ function App() {
   }
 
   if (error) {
-    console.error('Authentication error:', error);
+    console.error("Authentication error:", error);
     return <Navigate to="/login" />;
   }
 
   return (
-    <Routes>
-      <Route path="/login" element={
-        user ? <Navigate to="/" replace /> : <LoginPage />
-      } />
-      <Route path="/" element={
-        <ProtectedRoute>
-          <HomePage />
-        </ProtectedRoute>
-      } />
-    </Routes>
+    <>
+      {user && <AutoLogoutHandler logoutTime={10 * 60 * 1000} />} 
+      <Routes>
+        <Route
+          path="/login"
+          element={user ? <Navigate to="/" replace /> : <LoginPage />}
+        />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 

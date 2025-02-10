@@ -1,6 +1,12 @@
+// .eslintrc.cjs
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: {
+    browser: true,
+    es2020: true,
+    jest: true, // Add this line to recognize Jest globals
+    node: true, // Add this line to recognize Node.js globals
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -18,4 +24,4 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
-}
+};

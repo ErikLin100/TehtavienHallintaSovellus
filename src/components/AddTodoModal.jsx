@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
 
-const AddTodoModal = ({ open, onClose, onAddTodo }) => {
+const AddTodoModal = ({ open = false, onClose, onAddTodo }) => {
   const [title, setTitle] = useState("");
   const [priority, setPriority] = useState("low");
   const [deadline, setDeadline] = useState("");
@@ -17,8 +17,6 @@ const AddTodoModal = ({ open, onClose, onAddTodo }) => {
       setError("Deadline is required");
       return false;
     }
-    
-    // Validate deadline is not in the past
     const selectedDate = new Date(deadline);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -50,7 +48,6 @@ const AddTodoModal = ({ open, onClose, onAddTodo }) => {
         comments: comments.trim() 
       });
       
-      // Reset form
       resetForm();
       onClose();
     } catch (err) {
@@ -100,7 +97,9 @@ const AddTodoModal = ({ open, onClose, onAddTodo }) => {
           <option value="high">High Priority</option>
         </select>
         
+        <label htmlFor="deadline" className="block mb-2">Deadline</label> 
         <input
+          id="deadline"
           type="date"
           value={deadline}
           onChange={(e) => setDeadline(e.target.value)}
@@ -145,10 +144,6 @@ AddTodoModal.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   onAddTodo: PropTypes.func.isRequired
-};
-
-AddTodoModal.defaultProps = {
-  open: false
 };
 
 export default AddTodoModal;
