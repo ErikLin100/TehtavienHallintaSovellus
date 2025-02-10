@@ -51,4 +51,22 @@ Tämä on Todo-sovellus, joka on rakennettu Reactin ja Viten avulla. Sovellus k�
 - **Rekisteröityminen**: Luo uusi käyttäjätili syöttämällä sähköposti ja salasana.
 - **Kirjautuminen**: Kirjaudu sisään olemassa olevalla käyttäjätililläsi.
 - **Tehtävien hallinta**: Lisää, muokkaa ja poista tehtäviä. Voit myös asettaa tehtäville prioriteetteja ja määräaikoja.
+- 
+## Testaus
 
+Sovelluksessa on testejä, jotka voit suorittaa seuraavalla komennolla:
+
+```bash
+npm run test
+```
+
+### Testaushaara
+
+Tässä GitHub-repositoriossa on myös erillinen **testaushaara**, johon voit tehdä lisätestejä. Voit siirtyä tähän haaraan ja kehittää uusia testejä tai parantaa olemassa olevia. 
+
+1. **Siirry testaushaaraan**:
+   ```bash
+   git checkout testing
+   ```
+
+2. **Lisää tai muokkaa testejä** ja suorita ne varmistaaksesi, että kaikki toimii odotetusti.
